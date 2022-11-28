@@ -4,6 +4,7 @@ import {
   KeyboardAvoidingView,
   Modal,
   Platform,
+  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -41,7 +42,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <ScrollView style={styles.scrollView}>
       <StatusBar
         barStyle="light-content"
         backgroundColor="#262626"
@@ -71,7 +72,9 @@ export default function App() {
                 style={styles.textInput}
                 keyboardType="numeric"
                 onChangeText={setAlcool}
-                value={Platform.OS === "android" ? alcool : alcool.replace(",", ".")}
+                value={
+                  Platform.OS === "android" ? alcool : alcool.replace(",", ".")
+                }
                 maxLength={4}
               />
 
@@ -104,11 +107,14 @@ export default function App() {
           </View>
         </Modal>
       </View>
-    </>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: "#262626",
+  },
   container: {
     flex: 1,
     justifyContent: "center",
