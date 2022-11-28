@@ -1,0 +1,1 @@
+## An app with React Native to calculate if alcohol is worth it or not
